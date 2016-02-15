@@ -7,20 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5AA00C0A1C725D5500CE1CE2 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA00C091C725D5500CE1CE2 /* EditProfileViewController.swift */; };
+		5AA00C0C1C72610900CE1CE2 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA00C0B1C72610900CE1CE2 /* Profile.swift */; };
+		5AA00C0E1C7263DB00CE1CE2 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA00C0D1C7263DB00CE1CE2 /* CloudKit.framework */; };
 		5AAB1F7A1C6D336000C583CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAB1F791C6D336000C583CD /* AppDelegate.swift */; };
-		5AAB1F7C1C6D336000C583CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAB1F7B1C6D336000C583CD /* ViewController.swift */; };
+		5AAB1F7C1C6D336000C583CD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAB1F7B1C6D336000C583CD /* ProfileViewController.swift */; };
 		5AAB1F7F1C6D336000C583CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AAB1F7D1C6D336000C583CD /* Main.storyboard */; };
-		5AAB1F821C6D336000C583CD /* Netizmo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5AAB1F801C6D336000C583CD /* Netizmo.xcdatamodeld */; };
 		5AAB1F841C6D336000C583CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AAB1F831C6D336000C583CD /* Assets.xcassets */; };
 		5AAB1F871C6D336000C583CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AAB1F851C6D336000C583CD /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5AA00C081C7258ED00CE1CE2 /* Netizmo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Netizmo.entitlements; sourceTree = "<group>"; };
+		5AA00C091C725D5500CE1CE2 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		5AA00C0B1C72610900CE1CE2 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		5AA00C0D1C7263DB00CE1CE2 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		5AAB1F761C6D336000C583CD /* Netizmo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Netizmo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AAB1F791C6D336000C583CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5AAB1F7B1C6D336000C583CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5AAB1F7B1C6D336000C583CD /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5AAB1F7E1C6D336000C583CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5AAB1F811C6D336000C583CD /* Netizmo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Netizmo.xcdatamodel; sourceTree = "<group>"; };
 		5AAB1F831C6D336000C583CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AAB1F861C6D336000C583CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5AAB1F881C6D336000C583CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,15 +36,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AA00C0E1C7263DB00CE1CE2 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5AA00C0F1C72645F00CE1CE2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5AA00C0B1C72610900CE1CE2 /* Profile.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5AA00C101C72647D00CE1CE2 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5AAB1F7B1C6D336000C583CD /* ProfileViewController.swift */,
+				5AA00C091C725D5500CE1CE2 /* EditProfileViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
 		5AAB1F6D1C6D336000C583CD = {
 			isa = PBXGroup;
 			children = (
+				5AA00C0D1C7263DB00CE1CE2 /* CloudKit.framework */,
 				5AAB1F781C6D336000C583CD /* Netizmo */,
 				5AAB1F771C6D336000C583CD /* Products */,
 			);
@@ -56,13 +80,14 @@
 		5AAB1F781C6D336000C583CD /* Netizmo */ = {
 			isa = PBXGroup;
 			children = (
-				5AAB1F791C6D336000C583CD /* AppDelegate.swift */,
-				5AAB1F7B1C6D336000C583CD /* ViewController.swift */,
-				5AAB1F7D1C6D336000C583CD /* Main.storyboard */,
-				5AAB1F831C6D336000C583CD /* Assets.xcassets */,
-				5AAB1F851C6D336000C583CD /* LaunchScreen.storyboard */,
+				5AA00C081C7258ED00CE1CE2 /* Netizmo.entitlements */,
 				5AAB1F881C6D336000C583CD /* Info.plist */,
-				5AAB1F801C6D336000C583CD /* Netizmo.xcdatamodeld */,
+				5AAB1F831C6D336000C583CD /* Assets.xcassets */,
+				5AAB1F7D1C6D336000C583CD /* Main.storyboard */,
+				5AAB1F851C6D336000C583CD /* LaunchScreen.storyboard */,
+				5AAB1F791C6D336000C583CD /* AppDelegate.swift */,
+				5AA00C101C72647D00CE1CE2 /* View Controllers */,
+				5AA00C0F1C72645F00CE1CE2 /* Models */,
 			);
 			path = Netizmo;
 			sourceTree = "<group>";
@@ -99,6 +124,12 @@
 				TargetAttributes = {
 					5AAB1F751C6D336000C583CD = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = EG77NM7886;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -138,9 +169,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AAB1F7C1C6D336000C583CD /* ViewController.swift in Sources */,
+				5AA00C0C1C72610900CE1CE2 /* Profile.swift in Sources */,
+				5AAB1F7C1C6D336000C583CD /* ProfileViewController.swift in Sources */,
 				5AAB1F7A1C6D336000C583CD /* AppDelegate.swift in Sources */,
-				5AAB1F821C6D336000C583CD /* Netizmo.xcdatamodeld in Sources */,
+				5AA00C0A1C725D5500CE1CE2 /* EditProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,10 +285,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Netizmo/Netizmo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Netizmo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = apps.yoon.Netizmo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -264,10 +302,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Netizmo/Netizmo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Netizmo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = apps.yoon.Netizmo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -290,21 +334,9 @@
 				5AAB1F8D1C6D336000C583CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		5AAB1F801C6D336000C583CD /* Netizmo.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				5AAB1F811C6D336000C583CD /* Netizmo.xcdatamodel */,
-			);
-			currentVersion = 5AAB1F811C6D336000C583CD /* Netizmo.xcdatamodel */;
-			path = Netizmo.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 5AAB1F6E1C6D336000C583CD /* Project object */;
 }
