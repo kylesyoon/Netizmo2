@@ -23,22 +23,23 @@
                                 <rect key="frame" x="35" y="89" width="530" height="271"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qkw-Qv-ZhT">
-                                        <rect key="frame" x="244.5" y="0.0" width="41" height="20.5"/>
+                                        <rect key="frame" x="245" y="0.0" width="41" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5tp-xZ-6YQ">
-                                        <rect key="frame" x="165" y="35.5" width="200" height="200"/>
+                                        <rect key="frame" x="165" y="36" width="200" height="200"/>
+                                        <color key="backgroundColor" red="0.67108585860000003" green="0.67108585860000003" blue="0.67108585860000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="5tp-xZ-6YQ" secondAttribute="height" multiplier="1:1" id="X5G-Vj-TPW"/>
                                             <constraint firstAttribute="width" constant="200" id="h6c-7a-Rjb"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwa-0w-Pcl">
-                                        <rect key="frame" x="228.5" y="250.5" width="73.5" height="20.5"/>
+                                        <rect key="frame" x="229" y="251" width="73" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -124,12 +125,17 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ii2-lJ-2w6">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ii2-lJ-2w6">
                                         <rect key="frame" x="180" y="45" width="200" height="200"/>
+                                        <color key="backgroundColor" red="0.67108585858585856" green="0.67108585858585856" blue="0.67108585858585856" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ii2-lJ-2w6" secondAttribute="height" multiplier="1:1" id="2i5-Qd-RKU"/>
                                             <constraint firstAttribute="width" constant="200" id="Thd-of-dTy"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="d2v-vj-weC" appends="YES" id="dMo-Wf-RE3"/>
+                                        </connections>
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wmL-de-oJG">
                                         <rect key="frame" x="0.0" y="260" width="560" height="30"/>
@@ -214,6 +220,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uca-dD-OVC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="d2v-vj-weC">
+                    <connections>
+                        <action selector="didTapProfileImage:" destination="JrV-xf-PlC" id="XXe-qc-6wC"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2036" y="2061"/>
         </scene>

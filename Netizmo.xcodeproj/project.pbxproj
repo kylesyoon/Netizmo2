@@ -43,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A8BBA021C727A7000512D4D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5AA00C0D1C7263DB00CE1CE2 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5AA00C0F1C72645F00CE1CE2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -63,8 +71,8 @@
 		5AAB1F6D1C6D336000C583CD = {
 			isa = PBXGroup;
 			children = (
-				5AA00C0D1C7263DB00CE1CE2 /* CloudKit.framework */,
 				5AAB1F781C6D336000C583CD /* Netizmo */,
+				5A8BBA021C727A7000512D4D /* Frameworks */,
 				5AAB1F771C6D336000C583CD /* Products */,
 			);
 			sourceTree = "<group>";
