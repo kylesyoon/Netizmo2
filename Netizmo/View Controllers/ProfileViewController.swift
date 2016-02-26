@@ -17,13 +17,13 @@ class ProfileViewController: UIViewController {
     @IBOutlet var skillsCollectionView: UICollectionView!
     
     var myProfile: Profile?
+    var skills: [String]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.profileImageView.layer.cornerRadius = CGRectGetWidth(self.profileImageView.frame) / 2
         self.profileImageView.clipsToBounds = true
-        
+        self.skillsCollectionView.registerNib(UINib(nibName: SkillCell.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: SkillCell.cellIdentifier)
         self.fetchAndDisplayProfile()
     }
     
@@ -90,7 +90,51 @@ class ProfileViewController: UIViewController {
             if let image = profile.profileImage {
                 self.profileImageView.image = image
             }
+            
+            if let skills = profile.skills {
+                self.skills = skills
+                self.skillsCollectionView.reloadData()
+            }
         })
+    }
+    
+}
+
+extension ProfileViewController: UICollectionViewDataSource {
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let skills = self.skills {
+            return skills.count
+        }
+        
+        return 0
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        // Always expecting a skill cell here
+        guard let skillCell = collectionView.dequeueReusableCellWithReuseIdentifier(SkillCell.cellIdentifier, forIndexPath: indexPath) as? SkillCell else {
+            return UICollectionViewCell() // Just a blank initialized cell
+        }
+        
+        guard let skills = self.skills else {
+            return UICollectionViewCell()
+        }
+        
+        let skillString = skills[indexPath.row]
+        skillCell.configureWithSkill(skillString)
+        return skillCell
+    }
+    
+}
+
+extension ProfileViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        if let skills = self.skills where self.skills?.count > 0 {
+            return SkillCell.cellSizeForSkill(skills[indexPath.row])
+        }
+        
+        return CGSizeZero
     }
     
 }

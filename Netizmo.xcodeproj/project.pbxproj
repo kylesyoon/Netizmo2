@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A779B0A1C80E27200067B2F /* SkillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A779B091C80E27200067B2F /* SkillCell.xib */; };
+		5A779B0D1C80E29300067B2F /* SkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A779B0C1C80E29300067B2F /* SkillCell.swift */; };
 		5AA00C0A1C725D5500CE1CE2 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA00C091C725D5500CE1CE2 /* EditProfileViewController.swift */; };
 		5AA00C0C1C72610900CE1CE2 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA00C0B1C72610900CE1CE2 /* Profile.swift */; };
 		5AA00C0E1C7263DB00CE1CE2 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA00C0D1C7263DB00CE1CE2 /* CloudKit.framework */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A779B091C80E27200067B2F /* SkillCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SkillCell.xib; path = Views/SkillCell.xib; sourceTree = "<group>"; };
+		5A779B0C1C80E29300067B2F /* SkillCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillCell.swift; sourceTree = "<group>"; };
 		5AA00C081C7258ED00CE1CE2 /* Netizmo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Netizmo.entitlements; sourceTree = "<group>"; };
 		5AA00C091C725D5500CE1CE2 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		5AA00C0B1C72610900CE1CE2 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -43,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A779B0B1C80E27900067B2F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5A779B091C80E27200067B2F /* SkillCell.xib */,
+				5A779B0C1C80E29300067B2F /* SkillCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		5A8BBA021C727A7000512D4D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,8 +107,9 @@
 				5AAB1F7D1C6D336000C583CD /* Main.storyboard */,
 				5AAB1F851C6D336000C583CD /* LaunchScreen.storyboard */,
 				5AAB1F791C6D336000C583CD /* AppDelegate.swift */,
-				5AA00C101C72647D00CE1CE2 /* View Controllers */,
 				5AA00C0F1C72645F00CE1CE2 /* Models */,
+				5A779B0B1C80E27900067B2F /* Views */,
+				5AA00C101C72647D00CE1CE2 /* View Controllers */,
 			);
 			path = Netizmo;
 			sourceTree = "<group>";
@@ -165,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AAB1F871C6D336000C583CD /* LaunchScreen.storyboard in Resources */,
+				5A779B0A1C80E27200067B2F /* SkillCell.xib in Resources */,
 				5AAB1F841C6D336000C583CD /* Assets.xcassets in Resources */,
 				5AAB1F7F1C6D336000C583CD /* Main.storyboard in Resources */,
 			);
@@ -181,6 +196,7 @@
 				5AAB1F7C1C6D336000C583CD /* ProfileViewController.swift in Sources */,
 				5AAB1F7A1C6D336000C583CD /* AppDelegate.swift in Sources */,
 				5AA00C0A1C725D5500CE1CE2 /* EditProfileViewController.swift in Sources */,
+				5A779B0D1C80E29300067B2F /* SkillCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

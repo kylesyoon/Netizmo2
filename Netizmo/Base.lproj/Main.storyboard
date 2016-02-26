@@ -53,23 +53,18 @@
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4ie-c4-kIj">
                                 <rect key="frame" x="35" y="385" width="530" height="90"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kPR-f8-VgO">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="kPR-f8-VgO">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ro7-CK-YAc">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="wSo-LQ-Qw0"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="pTY-j9-LVX"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -157,47 +152,55 @@
                                     <constraint firstAttribute="trailing" secondItem="wmL-de-oJG" secondAttribute="trailing" id="ppf-U7-IAh"/>
                                 </constraints>
                             </stackView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add your skills" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BxM-xW-eHq">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="YoQ-Ic-mIR">
                                 <rect key="frame" x="20" y="429" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add your skills" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BxM-xW-eHq">
+                                        <rect key="frame" x="0.0" y="0.0" width="516" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fif-Nx-hgY">
+                                        <rect key="frame" x="530" y="0.0" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="nS6-fI-xgg"/>
+                                        </constraints>
+                                        <state key="normal" title="Add"/>
+                                        <connections>
+                                            <action selector="didTapAddSkill:" destination="JrV-xf-PlC" eventType="touchUpInside" id="R64-tG-IXF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BaE-0f-pGT">
                                 <rect key="frame" x="20" y="467" width="560" height="113"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="113" id="TD1-9r-9rJ"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Blc-X7-jnV">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Blc-X7-jnV">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="u3U-zW-3Kf">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="JrV-xf-PlC" id="ZlL-kr-9pl"/>
+                                    <outlet property="delegate" destination="JrV-xf-PlC" id="vys-s6-bab"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ZUS-r6-4jb" firstAttribute="top" secondItem="3DE-5W-DST" secondAttribute="bottom" constant="15" id="7Mv-cE-JQK"/>
                             <constraint firstItem="ZUS-r6-4jb" firstAttribute="leading" secondItem="vwZ-fO-f5Q" secondAttribute="leadingMargin" id="8Go-hp-Mus"/>
                             <constraint firstItem="BaE-0f-pGT" firstAttribute="trailing" secondItem="vwZ-fO-f5Q" secondAttribute="trailingMargin" id="AkA-2c-kHg"/>
                             <constraint firstItem="BaE-0f-pGT" firstAttribute="leading" secondItem="vwZ-fO-f5Q" secondAttribute="leadingMargin" id="FFA-AX-nkS"/>
-                            <constraint firstItem="BxM-xW-eHq" firstAttribute="leading" secondItem="vwZ-fO-f5Q" secondAttribute="leadingMargin" id="FYn-kW-9jb"/>
-                            <constraint firstItem="BaE-0f-pGT" firstAttribute="top" secondItem="BxM-xW-eHq" secondAttribute="bottom" constant="8" id="Z45-SK-f6W"/>
-                            <constraint firstItem="BxM-xW-eHq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ZUS-r6-4jb" secondAttribute="bottom" constant="15" id="bru-c4-zfu"/>
+                            <constraint firstItem="BaE-0f-pGT" firstAttribute="top" secondItem="YoQ-Ic-mIR" secondAttribute="bottom" constant="8" id="Fav-DN-cGN"/>
+                            <constraint firstItem="YoQ-Ic-mIR" firstAttribute="top" secondItem="ZUS-r6-4jb" secondAttribute="bottom" constant="15" id="Pk6-FI-5JG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZUS-r6-4jb" secondAttribute="trailing" id="enH-Jm-cSa"/>
                             <constraint firstItem="eLJ-Oq-fl3" firstAttribute="top" secondItem="BaE-0f-pGT" secondAttribute="bottom" constant="20" id="gNa-zF-fhb"/>
+                            <constraint firstItem="YoQ-Ic-mIR" firstAttribute="trailing" secondItem="ZUS-r6-4jb" secondAttribute="trailing" id="h7W-ZM-rO4"/>
                             <constraint firstItem="ZUS-r6-4jb" firstAttribute="top" secondItem="3DE-5W-DST" secondAttribute="bottom" constant="15" id="tXi-0i-6Df"/>
-                            <constraint firstItem="BxM-xW-eHq" firstAttribute="trailing" secondItem="vwZ-fO-f5Q" secondAttribute="trailingMargin" id="yrL-zw-O3m"/>
+                            <constraint firstItem="YoQ-Ic-mIR" firstAttribute="leading" secondItem="ZUS-r6-4jb" secondAttribute="leading" id="wKM-gA-UjA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dkM-F8-KlF">
@@ -213,10 +216,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addSkillTextField" destination="BxM-xW-eHq" id="cAl-RJ-g5P"/>
                         <outlet property="firstNameTextField" destination="wmL-de-oJG" id="iEw-Ba-Rhp"/>
                         <outlet property="lastNameTextField" destination="4dH-6x-sfv" id="z2l-JT-8Kt"/>
                         <outlet property="needTextField" destination="9Yw-Um-VOn" id="2n0-87-VKm"/>
                         <outlet property="profileImageView" destination="ii2-lJ-2w6" id="eFD-Mr-7ZI"/>
+                        <outlet property="skillsCollectionView" destination="BaE-0f-pGT" id="9Ql-x0-Kcw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uca-dD-OVC" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -23,6 +23,8 @@ class EditProfileViewController: UIViewController {
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var firstNameTextField: UITextField!
     @IBOutlet var lastNameTextField: UITextField!
+    @IBOutlet var addSkillTextField: UITextField!
+    @IBOutlet var skillsCollectionView: UICollectionView!
     
     var delegate: EditProfileViewControllerDelegate?
     var myProfile: Profile?
@@ -33,6 +35,7 @@ class EditProfileViewController: UIViewController {
         
         self.profileImageView.layer.cornerRadius = CGRectGetWidth(self.profileImageView.frame) / 2
         self.profileImageView.clipsToBounds = true
+        self.skillsCollectionView.registerNib(UINib(nibName: SkillCell.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: SkillCell.cellIdentifier)
         
         if let myProfile = self.myProfile {
             self.needTextField.text = myProfile.need
@@ -40,6 +43,11 @@ class EditProfileViewController: UIViewController {
             self.lastNameTextField.text = myProfile.lastName
             if let image = myProfile.profileImage {
                 self.profileImageView.image = image
+            }
+            
+            if let skills = myProfile.skills {
+                self.skills = skills
+                self.skillsCollectionView.reloadData()
             }
         }
     }
@@ -62,6 +70,7 @@ class EditProfileViewController: UIViewController {
         recordToUpdate[RecordKeys.FirstName.rawValue] = self.firstNameTextField.text
         recordToUpdate[RecordKeys.LastName.rawValue] = self.lastNameTextField.text
         recordToUpdate[RecordKeys.Need.rawValue] = self.needTextField.text
+        
         if let profileImage = self.profileImageView.image {
             var compression = 1.0
             var imageData = UIImageJPEGRepresentation(profileImage, CGFloat(compression))
@@ -74,6 +83,10 @@ class EditProfileViewController: UIViewController {
             recordToUpdate[RecordKeys.ProfileImage.rawValue] = imageData
         }
 
+        if skills.count > 0 {
+            recordToUpdate[RecordKeys.Skills.rawValue] = self.skills
+        }
+        
         defaultPrivateDB.saveRecord(recordToUpdate, completionHandler: {
             [weak self]
             record, error in
@@ -90,6 +103,47 @@ class EditProfileViewController: UIViewController {
     
     @IBAction func didTapCancel(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    @IBAction func didTapAddSkill(sender: AnyObject) {
+        if let newSkill = self.addSkillTextField.text {
+            let trimmedNewSkill = newSkill.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            self.skills.append(trimmedNewSkill)
+            self.skillsCollectionView.reloadData()
+            self.addSkillTextField.text = ""
+        }
+    }
+    
+    
+}
+
+extension EditProfileViewController: UICollectionViewDataSource {
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.skills.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        guard let skillCell = collectionView.dequeueReusableCellWithReuseIdentifier(SkillCell.cellIdentifier, forIndexPath: indexPath) as? SkillCell else {
+            return UICollectionViewCell()
+        }
+        
+        let skillString = skills[indexPath.row]
+        skillCell.configureWithSkill(skillString)
+        
+        return skillCell
+    }
+    
+}
+
+extension EditProfileViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        if self.skills.count > 0 {
+            return SkillCell.cellSizeForSkill(skills[indexPath.row])
+        }
+        
+        return CGSizeZero
     }
     
 }
