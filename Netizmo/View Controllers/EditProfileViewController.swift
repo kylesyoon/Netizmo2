@@ -136,6 +136,16 @@ extension EditProfileViewController: UICollectionViewDataSource {
     
 }
 
+extension EditProfileViewController: UICollectionViewDelegate {
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as? SkillCell {
+            selectedCell.configureSelectedState()
+        }
+    }
+    
+}
+
 extension EditProfileViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

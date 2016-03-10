@@ -17,6 +17,7 @@
 		5AAB1F7F1C6D336000C583CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AAB1F7D1C6D336000C583CD /* Main.storyboard */; };
 		5AAB1F841C6D336000C583CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AAB1F831C6D336000C583CD /* Assets.xcassets */; };
 		5AAB1F871C6D336000C583CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AAB1F851C6D336000C583CD /* LaunchScreen.storyboard */; };
+		5ACF4E8E1C91E2C5005E25DD /* UIColor+Netizmo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF4E8D1C91E2C5005E25DD /* UIColor+Netizmo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		5AAB1F831C6D336000C583CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AAB1F861C6D336000C583CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5AAB1F881C6D336000C583CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5ACF4E8D1C91E2C5005E25DD /* UIColor+Netizmo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Netizmo.swift"; path = "Extensions/UIColor+Netizmo.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,11 +109,20 @@
 				5AAB1F7D1C6D336000C583CD /* Main.storyboard */,
 				5AAB1F851C6D336000C583CD /* LaunchScreen.storyboard */,
 				5AAB1F791C6D336000C583CD /* AppDelegate.swift */,
+				5ACF4E8F1C91E2C9005E25DD /* Extensions */,
 				5AA00C0F1C72645F00CE1CE2 /* Models */,
 				5A779B0B1C80E27900067B2F /* Views */,
 				5AA00C101C72647D00CE1CE2 /* View Controllers */,
 			);
 			path = Netizmo;
+			sourceTree = "<group>";
+		};
+		5ACF4E8F1C91E2C9005E25DD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5ACF4E8D1C91E2C5005E25DD /* UIColor+Netizmo.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ACF4E8E1C91E2C5005E25DD /* UIColor+Netizmo.swift in Sources */,
 				5AA00C0C1C72610900CE1CE2 /* Profile.swift in Sources */,
 				5AAB1F7C1C6D336000C583CD /* ProfileViewController.swift in Sources */,
 				5AAB1F7A1C6D336000C583CD /* AppDelegate.swift in Sources */,
