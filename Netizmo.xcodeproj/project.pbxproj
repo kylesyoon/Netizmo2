@@ -18,6 +18,8 @@
 		5AAB1F841C6D336000C583CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AAB1F831C6D336000C583CD /* Assets.xcassets */; };
 		5AAB1F871C6D336000C583CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AAB1F851C6D336000C583CD /* LaunchScreen.storyboard */; };
 		5ACF4E8E1C91E2C5005E25DD /* UIColor+Netizmo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF4E8D1C91E2C5005E25DD /* UIColor+Netizmo.swift */; };
+		5ACF4E911C91F3C8005E25DD /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF4E901C91F3C8005E25DD /* NetworkViewController.swift */; };
+		5ACF4E931C91F6E7005E25DD /* String+Netizmo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF4E921C91F6E7005E25DD /* String+Netizmo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		5AAB1F861C6D336000C583CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5AAB1F881C6D336000C583CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5ACF4E8D1C91E2C5005E25DD /* UIColor+Netizmo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Netizmo.swift"; path = "Extensions/UIColor+Netizmo.swift"; sourceTree = "<group>"; };
+		5ACF4E901C91F3C8005E25DD /* NetworkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
+		5ACF4E921C91F6E7005E25DD /* String+Netizmo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Netizmo.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 			children = (
 				5AAB1F7B1C6D336000C583CD /* ProfileViewController.swift */,
 				5AA00C091C725D5500CE1CE2 /* EditProfileViewController.swift */,
+				5ACF4E901C91F3C8005E25DD /* NetworkViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				5ACF4E8D1C91E2C5005E25DD /* UIColor+Netizmo.swift */,
+				5ACF4E921C91F6E7005E25DD /* String+Netizmo.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -208,7 +214,9 @@
 				5AAB1F7C1C6D336000C583CD /* ProfileViewController.swift in Sources */,
 				5AAB1F7A1C6D336000C583CD /* AppDelegate.swift in Sources */,
 				5AA00C0A1C725D5500CE1CE2 /* EditProfileViewController.swift in Sources */,
+				5ACF4E911C91F3C8005E25DD /* NetworkViewController.swift in Sources */,
 				5A779B0D1C80E29300067B2F /* SkillCell.swift in Sources */,
+				5ACF4E931C91F6E7005E25DD /* String+Netizmo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

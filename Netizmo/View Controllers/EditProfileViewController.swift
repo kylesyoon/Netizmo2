@@ -52,52 +52,69 @@ class EditProfileViewController: UIViewController {
         }
     }
     
+    // TODO: Add network indicator
+    private func updateProfile(profile: Profile?,
+        success: Profile -> Void,
+        failure: ErrorType -> Void) {
+            var updateRecord: CKRecord
+            if let profile = profile {
+                updateRecord = profile.record
+            } else {
+                // new user
+                updateRecord = CKRecord(recordType: "profile", recordID: CKRecordID(recordName: "myProfile"))
+            }
+            updateRecord[RecordKeys.FirstName.rawValue] = self.firstNameTextField.text?.whiteSpaceTrimmed()
+            updateRecord[RecordKeys.LastName.rawValue] = self.lastNameTextField.text?.whiteSpaceTrimmed()
+            updateRecord[RecordKeys.Need.rawValue] = self.needTextField.text?.whiteSpaceTrimmed()
+            
+            if let profileImage = self.profileImageView.image {
+                var compression = 1.0
+                var imageData = UIImageJPEGRepresentation(profileImage, CGFloat(compression))
+                
+                while Double(imageData!.length) > self.maxRequestBytes && compression > 0.1 {
+                    compression -= 0.1
+                    imageData = UIImageJPEGRepresentation(profileImage, CGFloat(compression))
+                }
+                
+                updateRecord[RecordKeys.ProfileImage.rawValue] = imageData
+            }
+            
+            if skills.count > 0 {
+                updateRecord[RecordKeys.Skills.rawValue] = self.skills
+            }
+            
+            CKContainer.defaultContainer().privateCloudDatabase.saveRecord(updateRecord) {
+                record, error in
+                if let record = record {
+                    if let updatedProfile = Profile(record: record) {
+                        success(updatedProfile)
+                    } else {
+                        // TODO: Profile initialization error
+                    }
+                } else {
+                    if let error = error {
+                        failure(error)
+                    }
+                }
+            }
+    }
+    
     @IBAction func didTapProfileImage(recognizer: UITapGestureRecognizer) {
         self.setDelegateAndPresentImagePickerController()
     }
     
     @IBAction func didTapSave(sender: AnyObject) {
-        let defaultPrivateDB = CKContainer.defaultContainer().privateCloudDatabase
-        let myProfileRecordID = CKRecordID(recordName: "myProfile")
-        // If we have a profile, then need to send that record
-        var recordToUpdate: CKRecord
-        if let existingProfile = self.myProfile {
-            recordToUpdate = existingProfile.record
-        } else {
-            recordToUpdate = CKRecord(recordType: "profile", recordID: myProfileRecordID)
-        }
-        
-        recordToUpdate[RecordKeys.FirstName.rawValue] = self.firstNameTextField.text
-        recordToUpdate[RecordKeys.LastName.rawValue] = self.lastNameTextField.text
-        recordToUpdate[RecordKeys.Need.rawValue] = self.needTextField.text
-        
-        if let profileImage = self.profileImageView.image {
-            var compression = 1.0
-            var imageData = UIImageJPEGRepresentation(profileImage, CGFloat(compression))
-            
-            while Double(imageData!.length) > self.maxRequestBytes && compression > 0.1 {
-                compression -= 0.1
-                imageData = UIImageJPEGRepresentation(profileImage, CGFloat(compression))
-            }
-            
-            recordToUpdate[RecordKeys.ProfileImage.rawValue] = imageData
-        }
-
-        if skills.count > 0 {
-            recordToUpdate[RecordKeys.Skills.rawValue] = self.skills
-        }
-        
-        defaultPrivateDB.saveRecord(recordToUpdate, completionHandler: {
-            [weak self]
-            record, error in
-            if let record = record {
-                if let delegate = self?.delegate,
-                    updatedProfile = Profile(record: record) {
-                        delegate.didSaveProfile(updatedProfile)
+        self.updateProfile(self.myProfile,
+            success: {
+                [weak self]
+                profile in
+                if let delegate = self?.delegate {
+                    delegate.didSaveProfile(profile)
                 }
-            } else {
+            },
+            failure: {
+                error in
                 print("\(error)")
-            }
         })
     }
     
@@ -113,8 +130,6 @@ class EditProfileViewController: UIViewController {
             self.addSkillTextField.text = ""
         }
     }
-    
-    
 }
 
 extension EditProfileViewController: UICollectionViewDataSource {
@@ -123,15 +138,16 @@ extension EditProfileViewController: UICollectionViewDataSource {
         return self.skills.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        guard let skillCell = collectionView.dequeueReusableCellWithReuseIdentifier(SkillCell.cellIdentifier, forIndexPath: indexPath) as? SkillCell else {
-            return UICollectionViewCell()
-        }
-        
-        let skillString = skills[indexPath.row]
-        skillCell.configureWithSkill(skillString)
-        
-        return skillCell
+    func collectionView(collectionView: UICollectionView,
+        cellForItemAtIndexPath
+        indexPath: NSIndexPath) -> UICollectionViewCell {
+            guard let skillCell = collectionView.dequeueReusableCellWithReuseIdentifier(SkillCell.cellIdentifier, forIndexPath: indexPath) as? SkillCell else {
+                return UICollectionViewCell()
+            }
+            let skillString = skills[indexPath.row]
+            skillCell.configureWithSkill(skillString)
+            
+            return skillCell
     }
     
 }
@@ -140,7 +156,40 @@ extension EditProfileViewController: UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as? SkillCell {
+            // TODO: Work on deleting skill functionality, this is temp solution
             selectedCell.configureSelectedState()
+            
+            let deleteAlert = UIAlertController(title: "Delete skill",
+                message: "Are you sure you want to delete this skill?",
+                preferredStyle: .Alert)
+            let deleteAction = UIAlertAction(title: "Yes, delete", 
+                style: .Destructive, 
+                handler: {
+                    _ in
+                    self.skills.removeAtIndex(indexPath.row)
+                    self.updateProfile(self.myProfile,
+                        success: {
+                            profile in
+                            // TODO: Investigate
+                            dispatch_async(dispatch_get_main_queue(),
+                                {
+                                    selectedCell.configureDeselectedState()
+                                    self.skillsCollectionView.reloadData()
+                            })
+                        },
+                        failure: {
+                            error in
+                            // TODO: Deleting error
+                    })
+            })
+            deleteAlert.addAction(deleteAction)
+            let cancelAction = UIAlertAction(title: "Cancel",
+                style: .Cancel,
+                handler: nil)
+            deleteAlert.addAction(cancelAction)
+            self.presentViewController(deleteAlert,
+                animated: true,
+                completion: nil)
         }
     }
     
@@ -148,12 +197,14 @@ extension EditProfileViewController: UICollectionViewDelegate {
 
 extension EditProfileViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        if self.skills.count > 0 {
-            return SkillCell.cellSizeForSkill(skills[indexPath.row])
-        }
-        
-        return CGSizeZero
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+            if self.skills.count > 0 {
+                return SkillCell.cellSizeForSkill(skills[indexPath.row])
+            }
+            
+            return CGSizeZero
     }
     
 }

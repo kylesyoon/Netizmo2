@@ -50,6 +50,9 @@
                                     <constraint firstAttribute="height" constant="100" id="2n9-fw-Rbj"/>
                                 </constraints>
                                 <state key="normal" title="Network"/>
+                                <connections>
+                                    <segue destination="XkM-bY-DRb" kind="show" id="1WF-fV-JEP"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4ie-c4-kIj">
                                 <rect key="frame" x="35" y="386" width="530" height="89"/>
@@ -99,6 +102,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1224" y="1199"/>
+        </scene>
+        <!--Network View Controller-->
+        <scene sceneID="TN4-Gs-0Zk">
+            <objects>
+                <viewController id="XkM-bY-DRb" customClass="NetworkViewController" customModule="Netizmo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vee-77-e6Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="bzP-xc-8Ms"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qzR-RG-unp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ndn-MV-6gL">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="XkM-bY-DRb" id="yQ5-hx-LS4"/>
+                                    <outlet property="delegate" destination="XkM-bY-DRb" id="Mzs-IV-Rb9"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bzP-xc-8Ms" firstAttribute="top" secondItem="ndn-MV-6gL" secondAttribute="bottom" id="AWY-hH-FOs"/>
+                            <constraint firstItem="ndn-MV-6gL" firstAttribute="leading" secondItem="qzR-RG-unp" secondAttribute="leadingMargin" constant="-20" id="D5P-7N-tfD"/>
+                            <constraint firstItem="ndn-MV-6gL" firstAttribute="top" secondItem="qzR-RG-unp" secondAttribute="topMargin" id="mNr-Oy-zGC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ndn-MV-6gL" secondAttribute="trailing" constant="-20" id="oNI-ch-UrB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ndn-MV-6gL" id="i0R-FT-ozG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AR8-Ga-Pjw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2036" y="1199"/>
         </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="e5H-SC-gg3">

@@ -17,7 +17,7 @@ class SkillCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.layer.cornerRadius = 5.0
+        self.layer.cornerRadius = 6.0
     }
     
     func configureWithSkill(skill: String) {
